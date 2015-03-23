@@ -186,6 +186,8 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Target.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ConsumedRepository.cs" />
+    <Compile Include="Repository\TargetRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
