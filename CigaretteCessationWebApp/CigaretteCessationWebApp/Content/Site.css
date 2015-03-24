@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+.jumbotron {
+    background-image: url('Images/Quit-Smoking.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: 0;
+    height: 350px;
+    
+}
