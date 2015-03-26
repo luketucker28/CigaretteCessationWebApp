@@ -3,13 +3,14 @@
     ViewBag.Title = "Index";
 }
 
-<section ng-app="QuittingModule">>
+<section ng-app="Quitting">
     <nav class="side-nav col-md-2">
-        <ul>          
-            <li><a href="/Begin/#/EnterCigarettes">Enter Cigarettes</a></li>
-            <li><a href="/Begin/#/ViewEntries">View Consumption</a></li>
+        <ul>
+            <li><a ng-href="/Begin/#/EnterCigarettes">Enter Cigarettes</a></li>
+            <li><a ng-href ="/Begin/#/ViewEntries">View Consumption</></li>
+            
         </ul>
     </nav>
-    <div class="col-md-10 app-wrapper" ng-view></div>
+    <div ng-view></div>
 </section>
 <input type="hidden" value="@ViewBag.UserId" id="userID" />

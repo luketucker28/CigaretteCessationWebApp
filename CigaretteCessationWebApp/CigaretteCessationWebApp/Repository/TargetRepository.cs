@@ -38,7 +38,7 @@ namespace CigaretteCessationWebApp.Repository
         }
 
         public void Add(Target E)
-        {
+        {   
             _dbContext.Targets.Add(E);
             _dbContext.SaveChanges();
         }

@@ -182,6 +182,10 @@
     <Compile Include="Migrations\201503211819071_initial.Designer.cs">
       <DependentUpon>201503211819071_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201503252158150_UserAdded.cs" />
+    <Compile Include="Migrations\201503252158150_UserAdded.Designer.cs">
+      <DependentUpon>201503252158150_UserAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Consumed.cs" />
@@ -210,7 +214,12 @@
     <Content Include="Scripts\angular-route.min.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
-    <Content Include="Scripts\Angular\main.js" />
+    <Content Include="Scripts\Angular\Apps\ApiEnterCigarettesFactory.js" />
+    <Content Include="Scripts\Angular\Apps\ApiViewEntriesFactory.js" />
+    <Content Include="Scripts\Angular\Apps\EnterCigarettesController.js" />
+    <Content Include="Scripts\Angular\Apps\main.js" />
+    <Content Include="Scripts\Angular\Apps\ViewEntriesController.js" />
+    <Content Include="Scripts\Angular\Constants.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
@@ -229,9 +238,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Scripts\Angular\Views\Begin.html" />
-    <Content Include="Scripts\Angular\Views\EnterCigarettes.html" />
-    <Content Include="Scripts\Angular\Views\ViewEntries.html" />
+    <Content Include="Scripts\Angular\templates\EnterCigarettes.html" />
+    <Content Include="Scripts\Angular\templates\ViewEntries.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -283,6 +291,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201503211819071_initial.resx">
       <DependentUpon>201503211819071_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201503252158150_UserAdded.resx">
+      <DependentUpon>201503252158150_UserAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

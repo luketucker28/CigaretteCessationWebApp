@@ -43,20 +43,20 @@ namespace CigaretteCessationWebApp.Repository
             _dbContext.Consumeds.RemoveRange(b);
         }
 
-        public IEnumerable<Consumed> All()
+        public IEnumerable<Consumed>All()
         {
             var qu = from Consumed in _dbContext.Consumeds select Consumed;
             return qu.ToList<Consumed>();
         }
 
-        public List<Consumed> GetByUserName(string username)
+        public List<Consumed> GetByUserName(string id)
         {
-            return _dbContext.Consumeds.Where(s => s.UserName == username).ToList();
+            return _dbContext.Consumeds.Where(s => s.UserID == id).ToList();
         }
 
-        public List<Consumed> GetByDate(string usesname, DateTime D)
+        public List<Consumed> GetByDate(string id, DateTime D)
         {
-            return _dbContext.Consumeds.Where(c=> c.Date == D &&  c.UserName == usesname).ToList<Consumed>();
+            return _dbContext.Consumeds.Where(c=> c.Date == D &&  c.UserID == id).ToList<Consumed>();
         }
 
         //public List<Consumed> GetByDate(string usesname, DateTime D)
@@ -64,21 +64,21 @@ namespace CigaretteCessationWebApp.Repository
         //    return _dbContext.Consumeds.Where(c => c.Date == D && c.UserName == usesname).ToList<Consumed>();
         //}
 
-        public List<Consumed> GetByName(string users)
-        {
-            var a = from Consumed in _dbContext.Consumeds
-                    where Consumed.UserName == users
-                    select Consumed;
+        //public List<Consumed> GetByName(string users)
+        //{
+        //    var a = from Consumed in _dbContext.Consumeds
+        //            where Consumed.UserN == users
+        //            select Consumed;
 
-            return a.ToList<Consumed>();
+        //    return a.ToList<Consumed>();
 
 
-        }
+        //}
 
-        public IEnumerable<Consumed> OrderByName()
+        public IEnumerable<Consumed> OrderByDate()
         {
             var query = (from Consumed in _dbContext.Consumeds
-                         orderby Consumed.UserName
+                         orderby Consumed.Date
                          select Consumed).ToList();
             return query;
         }
@@ -108,14 +108,18 @@ namespace CigaretteCessationWebApp.Repository
         {
             throw new NotImplementedException();
         }
-
+        
 
         public IEnumerable<Consumed> PastConsumeds()
         {
             throw new NotImplementedException();
         }
 
-
+        public void Add(Consumed E)
+        {
+            _dbContext.Consumeds.Add(E);
+            _dbContext.SaveChanges();
+        }
         public void Dispose()
         {
 

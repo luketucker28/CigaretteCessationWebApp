@@ -18,7 +18,7 @@ using System.Linq;
         {
             context.Targets.AddOrUpdate(i => i.StartDate,
                 new Target {
-                    UserName = "Bill Smith",
+                    
                     StartDate = new DateTime(2014, 4, 8),
                     AmountSmoked = 15,
                     ReductionGoal = 3
@@ -26,7 +26,7 @@ using System.Linq;
                 context.Consumeds.AddOrUpdate(i => new {i.Date, i.Time},
                     
                     new Consumed {
-                        UserName = "Ted Smith", 
+                        UserID = "sevber",
                         Date = new DateTime(2012, 3, 5),
                         Time = "4:30 PM",
                         Location= "Home",
@@ -35,7 +35,7 @@ using System.Linq;
 
                     },
                     new Consumed {
-                        UserName = "Bill Smith", 
+                        UserID = "secfd",
                         Date = new DateTime(2014, 4, 30),
                         Time = "3:30 PM",
                         Location= "Home",
