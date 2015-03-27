@@ -11,39 +11,41 @@
 <body>
     <div class="jumbotron">
         <h1>Quit Map</h1>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Quit Map", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("Quit Map", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
-       </div>
+    </div>
     <div class="container body-content cf">
         @RenderBody()
         <hr />
-        </div>
-    
+    </div>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false) 
+    @RenderSection("scripts", required: false)
 
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-route.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
     <script src="~/Scripts/Angular/Apps/main.js"></script>
     <script src="~/Scripts/Angular/Apps/EnterCigarettesController.js"></script>
     @*<script src="~/Scripts/Angular/Apps/ApiEnterCigarettesFactory.js"></script>*@
+    <script src="~/Scripts/Angular/Constants.js"></script>
     <script src="~/Scripts/angular-resource.js"></script>
     <script src="~/Scripts/angular-animate.min.js"></script>
-   
 </body>
 </html>
 
