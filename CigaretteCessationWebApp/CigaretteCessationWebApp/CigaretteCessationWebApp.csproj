@@ -178,13 +178,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201503211819071_initial.cs" />
-    <Compile Include="Migrations\201503211819071_initial.Designer.cs">
-      <DependentUpon>201503211819071_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201503252158150_UserAdded.cs" />
-    <Compile Include="Migrations\201503252158150_UserAdded.Designer.cs">
-      <DependentUpon>201503252158150_UserAdded.cs</DependentUpon>
+    <Compile Include="Migrations\201504130116444_initialers.cs" />
+    <Compile Include="Migrations\201504130116444_initialers.Designer.cs">
+      <DependentUpon>201504130116444_initialers.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -244,7 +240,9 @@
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\Angular\templates\EnterCigarettes.html" />
     <Content Include="Scripts\Angular\templates\ViewEntries.html" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -293,11 +291,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201503211819071_initial.resx">
-      <DependentUpon>201503211819071_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201503252158150_UserAdded.resx">
-      <DependentUpon>201503252158150_UserAdded.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504130116444_initialers.resx">
+      <DependentUpon>201504130116444_initialers.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

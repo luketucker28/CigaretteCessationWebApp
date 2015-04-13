@@ -49,31 +49,31 @@ namespace CigaretteCessationWebApp.Repository
             return qu.ToList<Consumed>();
         }
 
-        public List<Consumed> GetByUserName(string id)
+        public List<Consumed> GetByUserId(string id)
         {
-            return _dbContext.Consumeds.Where(s => s.UserID == id).ToList();
+            return _dbContext.Consumeds.Where(s => s.UserID == id).ToList<Consumed>();
         }
 
-        public List<Consumed> GetByDate(string id, DateTime D)
+        public List<Consumed> GetByDate( DateTime D)
         {
-            return _dbContext.Consumeds.Where(c=> c.Date == D &&  c.UserID == id).ToList<Consumed>();
+            return _dbContext.Consumeds.Where(c => c.Date == D).ToList<Consumed>();
         }
-
-        //public List<Consumed> GetByDate(string usesname, DateTime D)
-        //{
-        //    return _dbContext.Consumeds.Where(c => c.Date == D && c.UserName == usesname).ToList<Consumed>();
-        //}
-
-        //public List<Consumed> GetByName(string users)
-        //{
-        //    var a = from Consumed in _dbContext.Consumeds
-        //            where Consumed.UserN == users
-        //            select Consumed;
-
-        //    return a.ToList<Consumed>();
-
-
-        //}
+        public List<Consumed> GetByDates(DateTime D, DateTime E)
+        {
+            var query = from Consumed in _dbContext.Consumeds
+                        where (Consumed.Date >= D && Consumed.Date <= E)
+                        select Consumed;
+            return query.ToList<Consumed>();
+        }
+        public List<Consumed> GetByLocation(string location)
+        {
+            return _dbContext.Consumeds.Where(c => c.Location == location).ToList<Consumed>();
+        }
+        public List<Consumed> GetByReason(string reasons)
+        {
+            return _dbContext.Consumeds.Where(a => a.Reason == reasons).ToList<Consumed>();
+        }
+       
 
         public IEnumerable<Consumed> OrderByDate()
         {
@@ -82,38 +82,12 @@ namespace CigaretteCessationWebApp.Repository
                          select Consumed).ToList();
             return query;
         }
-        public IEnumerable<Consumed> OrderById()
-        {
-            var query = (from Consumed in _dbContext.Consumeds
-                         orderby Consumed.ConsumedID
-                         select Consumed).ToList();
-            _dbContext.SaveChanges();
-            return query;
-        }
-        public Consumed FirstEntry()
-        {
 
-            var query = from Consumed in _dbContext.Consumeds select Consumed;
-            return query.ToList<Consumed>().ElementAt<Consumed>(0);
-
-        }
-        public Consumed FindEntry(int i)
-        {
-
-            var query = from Consumed in _dbContext.Consumeds select Consumed;
-            return query.ToList<Consumed>().ElementAt<Consumed>(i);
-
-        }
         public void Delete(Consumed E)
         {
-            throw new NotImplementedException();
-        }
-        
-
-        public IEnumerable<Consumed> PastConsumeds()
-        {
-            throw new NotImplementedException();
-        }
+            _dbContext.Consumeds.Remove(E);
+            _dbContext.SaveChanges();
+         }      
 
         public void Add(Consumed E)
         {

@@ -1,8 +1,18 @@
 ﻿;(function () {
     'use strict';
     angular.module('Quitting')
-    .controller('EnterCigarettesController', function ( $routeParams, $location, $scope) {
+    .controller('EnterCigarettesController', function ( $routeParams, EnterFactory ,USERID, $location, $scope) {
         var vm = this;
-        console.log("qefewqf");
+      
+        vm.newSmoker = { UserID: USERID };
+            vm.addNewSmoke = function () {
+                EnterFactory.postSmokes(vm.newSmoker, function () {
+                    vm.newSmoker = { UserID: USERID }
+                    console.log("success");
+                    
+                })
+            }
+
+       
     })    
 })();

@@ -2,27 +2,44 @@
   
 <div class="container create-cigarette">
     <h1>Enter Your Smoking Data</h1>
-    <div class="form-group">
-        <label class="control-label">Choose Date </label>
-        <datepicker></datepicker>
+    <form name="Enter-Cigarettes" class="form-inline" ng-submit="Enter.addNewSmoke()">
+        <div class="form-group">
+            <label class="control-label">Choose Date </label>
+            <datepicker ng-model="Enter.NewSmoker.Date" min-date="minDate" show-weeks="true"></datepicker>
         </div>
-        <div>
-                    <label class="control-label">Time </label>
-                    <TimePicker hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></TimePicker>
-                </div>
-                <div>
-                    <label class="control-label">Reason</label>
-                    <input type="text" class="form-control" />
-                </div>
-                <div class="form-group">
-                    <label class="control-label">Location </label>
-                    <input type="text" class="form-control"/>
-                </div>
-                <div class="form-group">
-                    <label class="control-label">PreCursor </label>
-                    <input type="text" class="form-control"/>
-                </div>
-    </div>
+        <div class="form-group">
+            <label class="control-label">Time</label>
+            <timepicker ng-model="Enter.newSmoker.Time"></timepicker>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Location</label>
+            <select ng-model="Enter.newSmoker.Location">
+                <option value="Home">Home</option>
+                <option value="Work">Friend</option>
+                <option value="School">Business</option>
+                <option value="Driving">Other</option>
+                <option value="SocialEvent">Social Event</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Reason</label>
+            <select ng-model="Enter.newSmoker.Reason">
+                <option value="Stress">Stress</option>
+                <option value="Boredom">Boredom</option>
+                <option value="Socializing">Socializing</option>
+                <option value="Sadness">Sadness</option>
+                <option value="Anger">Anger</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="control-label">Event Preceding</label>
+            <input type="text" name="Precursor" ng-model="Enter.newSmoker.Comments"/>
+        </div>
+        <input type="submit"/> 
+        </form>
+</div>
       
 
 

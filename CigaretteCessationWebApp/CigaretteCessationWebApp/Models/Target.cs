@@ -8,7 +8,7 @@ namespace CigaretteCessationWebApp.Models
     public class Target
     {
         public int TargetID { get; set; } 
-        public string UserName {get; set;}
+        public string UserID {get; set;}
         public DateTime StartDate {get; set;}
         public int AmountSmoked { get; set; }
         public int ReductionGoal { get; set; }
@@ -16,9 +16,9 @@ namespace CigaretteCessationWebApp.Models
         public Target() {
 
             }
-        public Target(string username, DateTime startdate, int amountsmoked, int reductiongoal)
+        public Target(string userid, DateTime startdate, int amountsmoked, int reductiongoal)
         {
-            this.UserName = username;
+            this.UserID = userid;
             this.StartDate = startdate;
             this.AmountSmoked = amountsmoked;
             this.ReductionGoal = reductiongoal;

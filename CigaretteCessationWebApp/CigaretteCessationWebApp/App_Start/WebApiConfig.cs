@@ -17,7 +17,7 @@ namespace CigaretteCessationWebApp
             config.Routes.MapHttpRoute(
                name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{userID}/{id}",
-                defaults: new { id = RouteParameter.Optional, userID =RouteParameter.Optional }
+                defaults: new { id = RouteParameter.Optional }
             );
         }
     }

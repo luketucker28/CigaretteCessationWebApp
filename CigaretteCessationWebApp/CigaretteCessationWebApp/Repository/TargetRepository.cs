@@ -38,11 +38,38 @@ namespace CigaretteCessationWebApp.Repository
         }
 
         public void Add(Target E)
-        {   
-            _dbContext.Targets.Add(E);
-            _dbContext.SaveChanges();
-        }
+        {
 
+            _dbContext.Targets.Add(new Target(E.UserID, E.StartDate, E.AmountSmoked, E.ReductionGoal));
+
+            double days = ((double)E.AmountSmoked / E.ReductionGoal) * 7;
+            int totalDays = (int)Math.Ceiling(days);
+            int counter = 1;
+            while (counter < totalDays)
+            {
+                if (counter % 7 == 0 && E.AmountSmoked > E.ReductionGoal)
+                {
+                    int smokeReducer = E.AmountSmoked - E.ReductionGoal;
+                    E.AmountSmoked = smokeReducer;
+                    _dbContext.Targets.Add(new Target(E.UserID, E.StartDate.AddDays(counter), smokeReducer, E.ReductionGoal));
+                    counter++;
+                }
+                else if (E.AmountSmoked < E.ReductionGoal && totalDays - counter <= 7)
+                {
+                    E.ReductionGoal = E.AmountSmoked;
+
+                    _dbContext.Targets.Add(new Target(E.UserID, E.StartDate.AddDays(counter), E.AmountSmoked, E.ReductionGoal));
+                    counter++;
+                }
+                else
+                {
+                    _dbContext.Targets.Add(new Target(E.UserID, E.StartDate.AddDays(counter), E.AmountSmoked, E.ReductionGoal));
+                    counter++;
+                }
+
+                _dbContext.SaveChanges();
+            }
+        }
         public void Clear()
         {
             var b = this.All();
@@ -64,32 +91,21 @@ namespace CigaretteCessationWebApp.Repository
 
         }
 
-        //public Target GetByDate(DateTime D)
-        //{
-        //    var query = from Target in _dbContext.Targets
-        //                where Target.Date == D
-        //                select Target;
-        //    return query.ToList<Target>();
-        //}
-
-        public List<Target> GetByName(string users)
+        public Target GetByDate(DateTime D)
         {
-            var a = from Target in _dbContext.Targets
-                    where Target.UserName == users
-                    select Target;
-
-            return a.ToList<Target>();
-
-
+            var query = from Target in _dbContext.Targets
+                        where Target.StartDate == D
+                        select Target;
+            return query.First<Target>();
         }
-
-        public IEnumerable<Target> OrderByName()
+        public List<Target> GetByDates(DateTime D, DateTime E)
         {
-            var query = (from Target in _dbContext.Targets
-                         orderby Target.UserName
-                         select Target).ToList();
-            return query;
+            var query = from Target in _dbContext.Targets
+                        where (Target.StartDate >= D && Target.StartDate <= E)
+                        select Target;
+            return query.ToList<Target>();
         }
+        
         public IEnumerable<Target> OrderById()
         {
             var query = (from Target in _dbContext.Targets
@@ -98,6 +114,7 @@ namespace CigaretteCessationWebApp.Repository
             _dbContext.SaveChanges();
             return query;
         }
+
         public Target FirstEntry()
         {
 
@@ -105,6 +122,7 @@ namespace CigaretteCessationWebApp.Repository
             return query.ToList<Target>().ElementAt<Target>(0);
 
         }
+
         public Target FindEntry(int i)
         {
 
