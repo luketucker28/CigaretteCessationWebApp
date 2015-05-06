@@ -1,18 +1,18 @@
 ﻿
   
-<div class="container create-cigarette">
+<div class="container create-cigarette" ng-controller="EnterCigarettesController as Enter">
     <h1>Enter Your Smoking Data</h1>
     <form name="Enter-Cigarettes" class="form-inline" ng-submit="Enter.addNewSmoke()">
         <div class="form-group">
-            <label class="control-label">Choose Date </label>
-            <datepicker ng-model="Enter.NewSmoker.Date" min-date="minDate" show-weeks="true"></datepicker>
+            <label class="control-label">Choose Date: </label>
+            <datepicker ng-model="Enter.newSmoker.Date" min-date="minDate" show-weeks="true"></datepicker>
         </div>
         <div class="form-group">
-            <label class="control-label">Time</label>
+            <label class="control-label">Choose Time:</label>
             <timepicker ng-model="Enter.newSmoker.Time"></timepicker>
         </div>
         <div class="form-group">
-            <label class="control-label">Location</label>
+            <label class="control-label">Choose Location:</label>
             <select ng-model="Enter.newSmoker.Location">
                 <option value="Home">Home</option>
                 <option value="Work">Friend</option>
@@ -23,7 +23,7 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="control-label">Reason</label>
+            <label class="control-label">Choose Reason:</label>
             <select ng-model="Enter.newSmoker.Reason">
                 <option value="Stress">Stress</option>
                 <option value="Boredom">Boredom</option>
@@ -34,14 +34,12 @@
             </select>
         </div>
         <div class="form-group">
-            <label class="control-label">Event Preceding</label>
-            <input type="text" name="Precursor" ng-model="Enter.newSmoker.Comments"/>
+            <label class="control-label">Enter Comment</label>
+            <input type="text" name="Precursor" ng-model="Enter.newSmoker.Comments" />
         </div>
-        <input type="submit"/> 
-        </form>
+        <input type="submit" />
+    </form>
 </div>
-      
-
 
 
 

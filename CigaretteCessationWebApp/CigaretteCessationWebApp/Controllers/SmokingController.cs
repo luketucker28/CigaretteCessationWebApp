@@ -8,6 +8,8 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
+
+
 namespace CigaretteCessationWebApp.Controllers
 {
     [RoutePrefix("api/Smoking")]
@@ -21,11 +23,11 @@ namespace CigaretteCessationWebApp.Controllers
         // GET: /api//Consumeds/userID
         [HttpGet]
         [Route("Consumeds/{userID}")]
-        public System.Web.Mvc.JsonResult Consumeds()
+        public System.Web.Mvc.JsonResult Consumeds(string userID)
         {
-            var cons =  consumes.All();
+            var consumed = consumes.GetByUserId(userID);
             var json = new System.Web.Mvc.JsonResult();
-            json.Data = new { cons };
+            json.Data = new { consumed };
             return json;
         }
 
@@ -37,38 +39,45 @@ namespace CigaretteCessationWebApp.Controllers
             consumes.Add(consumed);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
+        //DELETE: api/Persons/userID/Delete/ID
+        [HttpDelete]
+        [Route("Consumeds/Delete/{id}")]
+        public HttpResponseMessage DeleteConsumed(int id)
+        {
+            consumes.Delete(id);
+            return new HttpResponseMessage(HttpStatusCode.OK);
+        }
+       //// GET: api/Smoking/Consumeds/userIID/ID
+       // [HttpGet]
+       // [Route("/{userID}/filterby/{date}")]
+       // public System.Web.Mvc.JsonResult GetSmokesByDate(string userID, DateTime date)
+       // {
+       //     var smoked = consumes.GetByDate( date);
+       //     var json = new System.Web.Mvc.JsonResult();
+       //     json.Data = new { smoked };
+       //     return json;
+       // }
 
-        //GET: api/Smoking/Consumeds/userIID/ID
-        [HttpGet]
-        [Route("/{userID}/filterby/{date}")]
-        public System.Web.Mvc.JsonResult GetSmokesByDate(string userID, DateTime date)
-        {
-            var smoked = consumes.GetByDate( date);
-            var json = new System.Web.Mvc.JsonResult();
-            json.Data = new { smoked };
-            return json;
-        }
-
-        //GET: api/Smoking/Consumeds/UserID/Type/R
-        [HttpGet]
-        [Route("Persons/{userID}/fliterby/{reason}")]
-        public System.Web.Mvc.JsonResult GetByReasoning(string userID, string reason)
-        {
-            var smoked = consumes.GetByReason(reason);
-            var json = new System.Web.Mvc.JsonResult();
-            json.Data = new { smoked };
-            return json;
-        }
-        //Get: api/Smoking/Consumeds/UserId/Type/
-        [HttpGet]
-        [Route("Consumeds/{userID}/filterby/{Location}")]
-        public System.Web.Mvc.JsonResult GetByLocations(string userID, string location)
-        {
-            var smoked = consumes.GetByLocation(location);
-            var json = new System.Web.Mvc.JsonResult();
-            json.Data = new { smoked };
-            return json;
-        }
+       // //GET: api/Smoking/Consumeds/UserID/Type/R
+       // [HttpGet]
+       // [Route("Persons/{userID}/fliterby/{reason}")]
+       // public System.Web.Mvc.JsonResult GetByReasoning(string userID, string reason)
+       // {
+       //     var smoked = consumes.GetByReason(reason);
+       //     var json = new System.Web.Mvc.JsonResult();
+       //     json.Data = new { smoked };
+       //     return json;
+       // }
+       // //Get: api/Smoking/Consumeds/UserId/Type/
+       // [HttpGet]
+       // [Route("Consumeds/{userID}/filterby/{Location}")]
+       // public System.Web.Mvc.JsonResult GetByLocations(string userID, string location)
+       // {
+       //     var smoked = consumes.GetByLocation(location);
+       //     var json = new System.Web.Mvc.JsonResult();
+       //     json.Data = new { smoked };
+       //     return json;
+       // }
         
        
     }

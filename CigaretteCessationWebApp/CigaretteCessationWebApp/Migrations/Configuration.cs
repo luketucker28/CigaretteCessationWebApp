@@ -47,6 +47,7 @@ namespace CigaretteCessationWebApp.Migrations
                     Comments = "Fight WIth Boss"
 
                 });
+
         }
     }
 }

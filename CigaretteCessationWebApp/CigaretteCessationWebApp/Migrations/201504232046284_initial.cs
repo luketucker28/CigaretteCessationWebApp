@@ -3,7 +3,7 @@ namespace CigaretteCessationWebApp.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class initialers : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -13,7 +13,7 @@ namespace CigaretteCessationWebApp.Migrations
                     {
                         ConsumedID = c.Int(nullable: false, identity: true),
                         UserID = c.String(),
-                        Date = c.DateTime(nullable: false),
+                        Date = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         Time = c.String(),
                         Location = c.String(),
                         Reason = c.String(),
@@ -30,7 +30,7 @@ namespace CigaretteCessationWebApp.Migrations
                     {
                         TargetID = c.Int(nullable: false, identity: true),
                         UserID = c.String(),
-                        StartDate = c.DateTime(nullable: false),
+                        StartDate = c.DateTime(nullable: false, precision: 7, storeType: "datetime2"),
                         AmountSmoked = c.Int(nullable: false),
                         ReductionGoal = c.Int(nullable: false),
                     })

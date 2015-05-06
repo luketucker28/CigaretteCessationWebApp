@@ -178,9 +178,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201504130116444_initialers.cs" />
-    <Compile Include="Migrations\201504130116444_initialers.Designer.cs">
-      <DependentUpon>201504130116444_initialers.cs</DependentUpon>
+    <Compile Include="Migrations\201504232046284_initial.cs" />
+    <Compile Include="Migrations\201504232046284_initial.Designer.cs">
+      <DependentUpon>201504232046284_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505031835299_init2.cs" />
+    <Compile Include="Migrations\201505031835299_init2.Designer.cs">
+      <DependentUpon>201505031835299_init2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -215,11 +219,14 @@
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\angular.min.js" />
     <Content Include="Scripts\Angular\Apps\ApiEnterCigarettesFactory.js" />
-    <Content Include="Scripts\Angular\Apps\ApiViewEntriesFactory.js" />
+    <Content Include="Scripts\Angular\Apps\ConsumptionFactory.js" />
+    <Content Include="Scripts\Angular\Apps\config.js" />
+    <Content Include="Scripts\Angular\Apps\DateFilter.js" />
     <Content Include="Scripts\Angular\Apps\EnterCigarettesController.js" />
     <Content Include="Scripts\Angular\Apps\main.js" />
-    <Content Include="Scripts\Angular\Apps\ViewEntriesController.js" />
+    <Content Include="Scripts\Angular\Apps\ConsumptionController.js" />
     <Content Include="Scripts\Angular\Constants.js" />
+    <Content Include="Scripts\Angular\templates\Consumption.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\angular.min.js.map" />
@@ -239,7 +246,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Scripts\Angular\templates\EnterCigarettes.html" />
-    <Content Include="Scripts\Angular\templates\ViewEntries.html" />
+    <Content Include="Scripts\Angular\templates\EnterTarget.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -253,8 +260,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -291,8 +296,11 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201504130116444_initialers.resx">
-      <DependentUpon>201504130116444_initialers.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201504232046284_initial.resx">
+      <DependentUpon>201504232046284_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505031835299_init2.resx">
+      <DependentUpon>201505031835299_init2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

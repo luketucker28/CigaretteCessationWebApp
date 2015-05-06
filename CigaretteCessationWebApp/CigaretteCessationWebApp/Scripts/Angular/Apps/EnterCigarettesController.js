@@ -2,17 +2,14 @@
     'use strict';
     angular.module('Quitting')
     .controller('EnterCigarettesController', function ( $routeParams, EnterFactory ,USERID, $location, $scope) {
-        var vm = this;
+        var Enter = this;
       
-        vm.newSmoker = { UserID: USERID };
-            vm.addNewSmoke = function () {
-                EnterFactory.postSmokes(vm.newSmoker, function () {
-                    vm.newSmoker = { UserID: USERID }
-                    console.log("success");
-                    
-                })
-            }
-
-       
+        Enter.newSmoker = { UserID: USERID };
+        Enter.addNewSmoke = function () {
+            EnterFactory.postSmokes(Enter.newSmoker, function () {
+                Enter.newSmoker = { UserID: USERID }
+                console.log("success");
+            })
+        }
     })    
 })();

@@ -10,7 +10,7 @@ namespace CigaretteCessationWebApp.Models
     public class Consumed
     {   public int ConsumedID {get; set;}
     public string UserID { get; set; }
-        
+      [Column(TypeName = "DateTime2")]  
     public DateTime Date { get; set; }
         public string Time { get; set; }
         public string Location { get; set; }

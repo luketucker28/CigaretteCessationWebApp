@@ -49,7 +49,7 @@ namespace CigaretteCessationWebApp.Repository
             return qu.ToList<Consumed>();
         }
 
-        public List<Consumed> GetByUserId(string id)
+        public IEnumerable<Consumed> GetByUserId(string id)
         {
             return _dbContext.Consumeds.Where(s => s.UserID == id).ToList<Consumed>();
         }
@@ -83,14 +83,16 @@ namespace CigaretteCessationWebApp.Repository
             return query;
         }
 
-        public void Delete(Consumed E)
+        public void Delete(int id)
         {
-            _dbContext.Consumeds.Remove(E);
+            var consumed = _dbContext.Consumeds.Where(x => x.ConsumedID == id);
+            _dbContext.Consumeds.RemoveRange(consumed);
             _dbContext.SaveChanges();
-         }      
+        }
+     
 
         public void Add(Consumed E)
-        {
+            {
             _dbContext.Consumeds.Add(E);
             _dbContext.SaveChanges();
         }
