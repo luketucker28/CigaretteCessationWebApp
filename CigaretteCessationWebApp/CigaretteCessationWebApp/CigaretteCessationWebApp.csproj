@@ -227,6 +227,7 @@
     <Content Include="Scripts\Angular\Apps\ConsumptionController.js" />
     <Content Include="Scripts\Angular\Constants.js" />
     <Content Include="Scripts\Angular\templates\Consumption.html" />
+    <Content Include="Scripts\Angular\templates\Editor.html" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\angular.min.js.map" />

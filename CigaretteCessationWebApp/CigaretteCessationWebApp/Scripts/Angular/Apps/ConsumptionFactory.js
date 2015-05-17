@@ -25,10 +25,23 @@
                     console.log('get error:', err);
                 })            
             }
+            function _getSmoke(id, cb) {
+                var url = API + 'consumeds/' + USERID + '/' + id;
+                $http.get(url)
+                .success(function(obj) {
+                    cb(obj.data);
+               
+      
+                })
+                .error(function (err) {
+                    console.log('get error:', err);
+                })
+            }
             return {
                 getSmokes: _getSmokes,
-                deleteSmokes: _deleteSmokes
-            }
+                deleteSmokes: _deleteSmokes,
+                getSmoke: _getSmoke
+            }   
         })
 
  })();  

@@ -19,10 +19,10 @@
                 controller: 'ConsumptionController',
                 controllerAs: 'Consump'
             })
-            .when('/Editor', {
-                templateUrl: 'Scripts/Angular/Templates/Edit.html',
-                controller: 'EditorCtrl',
-                controllerAs: 'Editor'
+            .when('/Consumption/Edit/:id', {
+                templateUrl: '/Scripts/Angular/Templates/Editor.html',
+                controller: 'ConsumptionController',
+                controllerAs: 'Consump'
             })
 
         })

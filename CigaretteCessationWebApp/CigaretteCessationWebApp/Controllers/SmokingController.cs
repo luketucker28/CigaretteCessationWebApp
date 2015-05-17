@@ -47,16 +47,16 @@ namespace CigaretteCessationWebApp.Controllers
             consumes.Delete(id);
             return new HttpResponseMessage(HttpStatusCode.OK);
         }
-       //// GET: api/Smoking/Consumeds/userIID/ID
-       // [HttpGet]
-       // [Route("/{userID}/filterby/{date}")]
-       // public System.Web.Mvc.JsonResult GetSmokesByDate(string userID, DateTime date)
-       // {
-       //     var smoked = consumes.GetByDate( date);
-       //     var json = new System.Web.Mvc.JsonResult();
-       //     json.Data = new { smoked };
-       //     return json;
-       // }
+        // GET: api/Smoking/Consumeds/userIID/ID
+        [HttpGet]
+        [Route("Consumeds/{userID}/{id}")]
+        public System.Web.Mvc.JsonResult GetConsumed(string userID, int id)
+        {
+            var smoke = consumes.GetById(id);
+            var json = new System.Web.Mvc.JsonResult();
+            json.Data = new { smoke };
+            return json;
+        }
 
        // //GET: api/Smoking/Consumeds/UserID/Type/R
        // [HttpGet]

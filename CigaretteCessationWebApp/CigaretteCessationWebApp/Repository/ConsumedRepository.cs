@@ -48,7 +48,11 @@ namespace CigaretteCessationWebApp.Repository
             var qu = from Consumed in _dbContext.Consumeds select Consumed;
             return qu.ToList<Consumed>();
         }
+        public List<Consumed> GetById(int id)
+        {
+            return _dbContext.Consumeds.Where(s => s.ConsumedID == id).ToList<Consumed>();      
 
+        }
         public IEnumerable<Consumed> GetByUserId(string id)
         {
             return _dbContext.Consumeds.Where(s => s.UserID == id).ToList<Consumed>();

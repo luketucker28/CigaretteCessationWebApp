@@ -1,6 +1,6 @@
-﻿<div class="container-fluid" ng-controller="ConsumptionController as Consump">
+﻿<div class="container-fluid">
     <button ng-click="Consump.viewConsumed()">Hit me</button>
-     <table>
+     <table ng-show="Consump.consumed">
        <thead>
         <tr>
         <th>Date</th>
@@ -12,7 +12,7 @@
          <th>Delete</th>
 </thead>
 <tbody>
-    <tr ng-repeat="(id,consumed) in Consump.consumed | orderBy: 'date' ">
+    <tr ng-repeat="consumed in Consump.consumed | orderBy: 'date' ">
         <td>{{consumed.date | date}}</td>
         <td>{{consumed.consumedID}}</td>
         <td>{{consumed.time}}</td>
@@ -20,7 +20,7 @@
         <td>{{consumed.reason}}</td>
         <td>{{consumed.comments}}</td>
         <td><button class="btn-danger" ng-click="Consump.deleteConsumed(id, consumed)">Delete</button></td>
-        <td><button class="btn-danger">Edit</button></td>
+        <td><button class="btn-default" ng-click="Consump.getIndividualSmoke(id, consumed)">Edit</button></td>
     </tr>
 </tbody>
 </table>    
